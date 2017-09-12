@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../js/2.0/vue.js"></script>
+
+	</head>
+
+	<body>
+		
+		<div id="app">
+			
+			<parent-component></parent-component>
+			
+			<hr />
+			
+			<!-- 后两种方式 是失效的 , 父容器会覆盖自容器的渲染-->
+			
+			<parent-component>
+				<child-component></child-component>
+			</parent-component>
+			
+			<hr>
+			
+			<child-component></child-component>
+			
+		</div>
+
+	</body>
+
+</html>
+<script>
+
+	var child = Vue.extend({
+		template : '<h5 style="color : blue">child component</h5>',
+	});
+	
+	var parent = Vue.extend({ // Component template should contain exactly one root element
+		template :'<p style="color:red">parent Component <child-component></child-component></p>' , 
+		components : {
+			//注册局部组建 child , 表明 child 只能在 parent 中使用 
+			'child-component' : child
+		}
+	});
+	
+	Vue.component('parent-component' , parent);
+	
+	var app = new Vue({
+		el : '#app'
+	})
+	
+</script>

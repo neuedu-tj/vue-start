@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<input type="text" v-model="temp" v-on:keyup.enter="addToList"/> 
+			<br>
+			<p>{{keycode}}</p>
+			<ul>
+				<li v-for="course in list">
+					<span>{{course.name}}</span>
+					<span> &nbsp;|&nbsp;</span>
+					<button v-on:click="removeFromList">remove</button>
+				</li>
+			</ul>
+			
+		</div>
+		
+	</body>
+</html>
+<script>
+	
+	new Vue({
+		el :'#app' , 
+		data : {
+			keycode : '',
+			temp :'',
+			list : [
+				{ name :'Angular.js'} , 
+				{ name :'Vue.js'},
+				{ name :'React.js'}
+			]
+		} ,
+		methods : {
+			addToList: function(){
+				
+				var value = this.temp.trim()
+				if(value){
+					this.list.push({name : value})
+					this.temp = ''
+				}
+			} , 
+			removeFromList :function(index){
+				this.list.splice(index , 1);
+				
+			}
+		
+		}
+			
+	});
+	
+</script>

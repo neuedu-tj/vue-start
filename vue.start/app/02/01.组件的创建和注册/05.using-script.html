@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+
+	<body>
+
+		<div id="app">
+
+			<my-component></my-component>
+			<my-component></my-component>
+			
+			<hr />
+			
+			<my-component2></my-component2>
+
+		</div>
+		
+		<!-- 组件在外部渲染 , 成功后挂载到 下面 组件的  template 属性上 , 声明于实现分离 . -->
+		<script type="text/template" id="myComponent">
+			<div>我被编写在了 js 部分 , 避免了耦合</div>
+		</script>
+		
+		<!-- 或直接使用 template 标签 -->
+		<template id="mee">
+			<div>直接使用 template 在外部 render .....  </div>
+		</template>
+		
+		
+	</body>
+
+</html>
+<script type="text/javascript" src="../../../js/2.0/vue.js"></script>
+<script>
+	Vue.component('my-component', {
+		template: '#myComponent'
+	});
+	
+	Vue.component('my-component2' , {
+		template :'#mee'
+	})
+
+	new Vue({
+		el: '#app'
+	})
+</script>

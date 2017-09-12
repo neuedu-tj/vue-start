@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../../frame/bootstrap/css/bootstrap.css" />
+
+	</head>
+
+	<body>
+
+		<div id="app" class="container-fluid">
+
+			<nav>
+				<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					
+				    <li v-for="n in pageCount">
+				    		<a href="javascript:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''" >{{n}}</a>
+				    </li>
+				    
+				    <li><a href="#">&raquo;</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+	</body>
+
+</html>
+<script type="text/javascript" src="../../../js/2.0/vue.js"></script>
+<script>
+	
+	var vm = new Vue({
+		
+		el : '#app' , 
+		data : {
+			activeNumber : 1 , 
+			pageCount : 6
+		}
+		
+	});
+	
+</script>

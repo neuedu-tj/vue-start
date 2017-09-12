@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+	</head>
+	<body>
+		
+		<!-- 父子组件绑定 -->
+		
+		<div id="app">
+			
+			Name : <input v-model="name" /><br>
+			Age : <input v-model="age" />
+			
+			<hr>
+			
+			<stu-info v-bind:subname="name" v-bind:age="age"></stu-info>
+			
+		</div>
+		
+		<!-- 组件部分 -->
+		<template id="student-info">
+			<table>
+				<tr>
+					<th colspan="2">
+						子组件数据
+					</th>
+				</tr>
+				<tr>
+					<td>Name :&nbsp;</td>
+					<td>{{subname}}</td>
+				</tr>
+				<tr>
+					<td>Age :&nbsp;</td>
+					<td>{{age}}</td>
+				</tr>
+			</table>
+			
+		</template>
+		
+	</body>
+</html>
+
+<script>
+	
+	var vm = new Vue({
+		
+		el : '#app' , 
+		data : {
+			name  : 'tom' , 
+			age :'20'
+		} ,
+		components : {
+			'stu-info' : {
+				template : '#student-info' , 
+				props : [ 'subname' , 'age']
+			}
+		}
+		
+	});
+	
+</script>

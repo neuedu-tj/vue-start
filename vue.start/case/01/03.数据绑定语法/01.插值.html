@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<div v-for="e in emps" >
+				{{e.id}} - {{ e.name }} - {{ e.age}}
+			</div>
+			
+		</div>
+		
+		
+	</body>
+</html>
+
+
+<script>
+	
+	var vm = new Vue({
+		
+		el : '#app' , 
+		data : {
+			emps :[ 
+				{ id: 1 , name:'tom' , age:20} , { id : 2 , name:'jack' , age:30}
+			]
+		},
+		methods : {
+			
+			foo : function(){
+				
+			}
+			
+		}
+		
+		
+	});
+	
+	
+</script>

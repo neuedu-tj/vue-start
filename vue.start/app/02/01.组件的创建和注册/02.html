@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			<my-component></my-component>
+		</div>
+		
+		<hr>
+		<my-component></my-component><!-- 此段不生效 , 局部组件 ,  出界后不识别 -->
+		
+	</body>
+</html>
+<script type="text/javascript">
+	
+	var myComponent = Vue.extend({
+		template : '<div>Hello Vue !</div>'
+	});
+	
+	new Vue({
+		el:'#app' , 
+		components : {
+			'my-component' : myComponent
+		}
+	})
+	
+</script>

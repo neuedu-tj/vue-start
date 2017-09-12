@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="../../../frame/bootstrap/css/bootstrap.css" />
+		
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			
+			<div id="emps">
+			
+			<fieldset >
+				
+				<legend class="text-warning">emp informations </legend>
+				
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input v-model="newone.name" class="form-control" placeholder="name"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-asterisk"></span>
+						</span>
+						<input v-model="newone.age" class="form-control" placeholder="age"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-euro"></span>
+						</span>
+						<input v-model="newone.salary" class="form-control" placeholder="salary">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<select v-model="newone.gender"  class="form-control" >
+							<option value="male">Male</option>
+							<option value="female">FeMale</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<button type="button" class="btn btn-default center-block" v-on:click="addEmp">
+  						<span class="glyphicon glyphicon-plus"></span> Add Emp
+					</button>
+				</div>
+				
+			</fieldset>
+			
+			<hr />
+			
+			<table class="table table-striped table-bordered table-hover text-center">
+				
+				<thead>
+					<tr class="bg-success">
+						<td>Name</td>
+						<td>Age</td>
+						<td>Salary</td>
+						<td>Gender</td>
+						<td>Control</td>
+					</tr>
+					
+				</thead>
+				<tbody>
+					<tr v-for="emp in emps">
+						<td>{{emp.name}}</td>
+						<td>{{emp.age}}</td>
+						<td>{{emp.salary}}</td>
+						<td>{{emp.gender}}</td>
+						<td>
+							<button class="btn btn-info btn-xs btn-block" v-on:click="removeEmp">remove</button>
+						</td>
+					</tr>
+					
+				</tbody>
+				
+			</table>
+			
+		</div>
+			
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	
+	
+	var vm_emps = new Vue({
+		
+		el : '#emps' , 
+		
+		data : {
+			newone : { name : '' , age : '' , salary : '' , gender : ''} , 
+			emps : [
+				{ name : 'tom' , age : 20 , salary : 8000 , gender : 'male'} , 
+				{ name : 'rose', age : 30 , salary : 16000, gender : 'female'}
+			]
+		},
+		methods : {
+			addEmp : function() {
+				this.emps.push(this.newone);
+				this.newone = { name : '' , age : '' , salary : '' , gender : ''};
+
+			} , 
+			removeEmp : function(index) {
+				this.emps.splice(index , 1)
+			}
+		}
+		
+	})
+	
+</script>

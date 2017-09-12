@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		
+		<div id="app">
+			<c-a></c-a>
+			
+		</div>
+		
+		<hr />
+		
+		<div id="app2">
+			<c-b></c-b>
+			<c-c></c-c>
+		</div>
+		
+	</body>
+</html>
+
+<script>
+	
+	Vue.component('c-a' , {
+		template : '<div> component A . </div>'
+	});
+	
+	
+	var vm1 = new Vue({
+		el : '#app'
+	})
+	
+	var vm2 = new Vue({
+		el : '#app2' , 
+		components : {
+			'c-b' : {
+				template : '<div>component B .</div>'
+			} , 
+			'c-c' : {
+				template : '<div>component C</div>'
+			}
+		}
+	})
+	
+</script>

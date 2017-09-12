@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<ul>
+				<li v-for="c in list">
+					{{c.text}}
+				</li>
+			</ul>
+			
+		</div>
+		
+		
+	</body>
+</html>
+<script>
+	
+	new Vue({
+		
+		el : '#app' , 
+		data : {
+			list : [
+				{ text : 'javascript'} , 
+				{ text : 'Vue.js'} , 
+				{ text : 'CMD - commons.js'}
+			]
+		}
+		
+	});
+	
+	
+</script>

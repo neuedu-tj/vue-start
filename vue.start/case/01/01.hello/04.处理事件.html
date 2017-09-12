@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<!--<input type="text" v-model="message" />-->
+			<button v-on:click="reverseMessages"> Get Message</button>
+			<p>{{message}}</p>
+		</div>
+		
+	</body>
+</html>
+<script>
+	
+	new Vue({
+		el : '#app' , 
+		data : {
+			message :'Hello vue '
+		} ,
+		methods :{
+			reverseMessages: function(){
+				this.message = this.message.split(' ').reverse().join(' ');
+			}
+		}
+		
+	})
+	
+</script>

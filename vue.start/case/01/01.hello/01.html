@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<div id="app">
+			{{msg}}
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+
+	<script>
+		//model
+		var datas = {
+			msg: 'Hello everyone :)'
+		}
+
+		//v-model , connect to model
+		new Vue({
+			el: '#app',
+			data: datas
+		});
+	</script>
+
+</html>

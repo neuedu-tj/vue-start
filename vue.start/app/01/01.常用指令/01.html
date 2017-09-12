@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="../../../frame/bootstrap/css/bootstrap.css" />
+		
+		<style>
+			
+		
+			.title{
+				color: dodgerblue;
+			}
+		
+			sub {
+				font-family: "微软雅黑" "arial, helvetica, sans-serif" ;
+				color: indianred;
+			}
+			
+			
+		</style>
+		
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		<div id="container" class="container-fluid">
+		
+		<p class="title">v-if :&nbsp;</p>
+		<div id="vue-if" >
+			<div v-if="yes">yes</div>
+			<div v-if="!no">!no</div>
+			<div v-if="age < 30">小于30岁 , 实际年龄是 : {{age}}</div>
+			<div v-else="age > 30">大于 30 岁 , 实际年龄是 : {{age}}</div>
+			<!--	 v-else 需要紧跟在 v-if 块  -->
+			
+			<div v-if="name.indexOf('V')!=-1">名称中有 字母 V , 名称是 :&nbsp;{{name}}</div>
+			
+		</div>
+		<hr>
+		
+		
+		
+		
+		<p class="title">v-show : </p>
+		<sub>
+			v-show也是条件渲染指令，
+			和v-if指令不同的是，使用v-show指令的元素始终会被渲染到HTML，
+			它只是简单地为元素设置CSS的style属性
+		</sub>
+		<div id="vue-show">
+			<div v-show="yes">Yes!</div>
+			<div v-show="no">no</div>
+		</div>
+		<hr />
+		
+		
+		
+		
+		<p class="title">v-bind : </p>
+		
+		
+		
+		
+		</div>
+		
+	</body>
+</html>
+
+<script>
+	
+	var vm_if = new Vue({
+		el : '#vue-if' , 
+		data : {
+			yes : true , 
+			no : false, 
+			age : 20 , 
+			name : 'Vue'
+		}
+	});
+	
+	var vm_show = new Vue({
+		el : '#vue-show' , 
+		data : {
+			yes : true , 
+			no : false, 
+			age : 20 , 
+			name : 'Vue'
+		}
+	});
+	
+</script>

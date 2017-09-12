@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+	</head>
+
+	<body>
+
+		<div id="app2" class="demo">
+			<p>{{ message }}</p>
+			<input v-model="message">
+		</div>
+
+	</body>
+
+</html>
+
+<script>
+	new Vue({
+		el: '#app2',
+		data: {
+			message: 'Hello Vue.js!'
+		}
+	})
+</script>

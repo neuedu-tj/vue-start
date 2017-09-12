@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript" src="../../../js/2.0/vue.js" ></script>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<me-vue-component></me-vue-component>
+			
+		</div>
+		
+		
+	</body>
+</html>
+
+<script>
+	//1. 组件构造器
+	var myComponent = Vue.extend({
+		template : '<div>Hello , Vue Component ! '
+	});
+	//2. 注册组件 - 全局注册
+	Vue.component('me-vue-component' , myComponent);
+	
+	var vm = new Vue({
+		el : '#app'
+	})
+	
+	
+</script>

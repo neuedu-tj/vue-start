@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="../../../js/2.0/vue.js"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<input v-model="temp"/>
+			<button v-on:click="pushValue">changed</button>
+			<p>{{name}}</p>
+		</div>
+		
+	</body>
+</html>
+
+<script>
+	
+	var stu = { name : 'Vue' };
+	// vm lifeCycle
+	var vm = new Vue({
+		el:'#app', 
+		temp:'', 
+		data:stu , 
+		methods:{
+			pushValue : function(){
+				stu.name = this.temp;  //这里 不能写 this.stu.name  注意生命周期中 this的使用
+			}
+		}
+	});
+	
+//	document.write(vm.$data === data );
+//	document.write("$el === #app ?" + vm.$el === document.getElementById("app"))
+	
+	//watch
+	vm.$watch('name' , function( newValue , oldValue) {
+		alert('data.name ['+ oldValue +'] changed , value : ' +newValue)
+	});
+	
+</script>
